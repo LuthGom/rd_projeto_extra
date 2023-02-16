@@ -1,0 +1,10 @@
+.Button{
+    background-color: turquoise;
+    border: 2px groove darkmagenta;
+    padding: 1em;
+}
+.Button:hover{
+    background-color: darkmagenta;
+    border: 2px groove turquoise;
+    cursor: pointer;
+}

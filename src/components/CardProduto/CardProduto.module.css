@@ -1,0 +1,20 @@
+.Card {
+  width: 50%;
+  border: 2px groove darkmagenta;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Card p {
+  font-size: 18px;
+  text-align: justify;
+}
+.Card .nome, .preco {
+  font-weight: bold;
+}
+.Card img {
+  width: 150px;
+  height: 150px;
+}
