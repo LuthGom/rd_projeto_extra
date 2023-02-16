@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>⬇😎Clique aqui para uma surpresinha!! 😎⬇</h1>
+      <h1>Se você fez o clone desse repo com antecedência, PARABÉNS!!! ⬇😎Clique aqui para uma surpresinha!! 😎⬇</h1>
       <button onClick={() => (show === false ? setShow(true) : setShow(false))}>
         <img
           width="100px"

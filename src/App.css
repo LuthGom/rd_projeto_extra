@@ -6,6 +6,10 @@
   margin: 10em auto;
   background-color: white;
 }
+.App h1 {
+  text-align: center;
+  margin: 0 7em;
+}
 .App button{
   width: 100px;
   background-color: orange;
