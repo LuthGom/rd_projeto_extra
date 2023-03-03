@@ -1,10 +1,7 @@
-import React, { useState } from "react";
 import Input from "../../components/Input/Input";
 import styles from "./Cadastro.module.css";
 import { url } from "../../services/api";
-import SubmitButton from "../../components/SubmitButton/SubmitButton";
-import e from "cors";
-
+import { useState } from "react";
 export default function Cadastro() {
   const valoresIniciais = {
     nome: "",
@@ -17,97 +14,118 @@ export default function Cadastro() {
     email: "",
     senha: "",
   };
-
   const [body, setBody] = useState(valoresIniciais);
+  console.log(body);
+
   const postApi = () => {
     url
-      .post("https://projeto-extra-api.onrender.com/clientes", body)
-      .then((resposta) => resposta.data.error)
-      .catch((erro) => console.log(erro));
+      .post("/clientes", body)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
   };
 
-  const onChangeInput = (evento) => {
-    const { name, value } = evento.target;
-   
-      setBody({ ...body, [name]: value });
-    
-  };
+  const handleOnChange = (event) => {
+    const { name, value } = event.target;
 
+    setBody({ ...body, [name]: value });
+  };
+  const limpaCampos = () => {
+    setBody(valoresIniciais);
+  };
   return (
-    <form className={styles.Cadastro}>
+    <form>
       <Input
-        name="nome"
         label="Nome: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="Digite seu nome aqui"
+        name="nome"
         id="nome"
+        placeholder="Digite seu primeiro Nome aqui"
+        type="text"
+        onChange={(e) => handleOnChange(e)}
+        value={body.nome}
       />
       <Input
-        name="sobrenome"
         label="Sobrenome: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="Digite seu sobrenome aqui"
+        name="sobrenome"
         id="sobrenome"
+        placeholder="Digite seu ultimo Nome aqui"
+        type="text"
+        onChange={(e) => handleOnChange(e)}
+        value={body.sobrenome}
       />
       <Input
-        name="cpf"
         label="Cpf: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="somente numeros. ex.: 1111111111"
+        name="cpf"
         id="cpf"
+        placeholder="ex.: 111.111.111-11"
+        type="text"
+        onChange={(e) => handleOnChange(e)}
+        value={body.cpf}
       />
       <Input
+        label="Endereço: "
         name="endereco"
-        label="Enderenço: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="Ex.: Rua do peró"
         id="endereco"
+        placeholder="ex.: Rua da Benção"
+        type="text"
+        onChange={(e) => handleOnChange(e)}
+        value={body.endereco}
       />
       <Input
-        name="cidade"
         label="Cidade: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="Ex.: Cabo Frio"
+        name="cidade"
         id="cidade"
+        placeholder="ex.: Araruama"
+        type="text"
+        onChange={(e) => handleOnChange(e)}
+        value={body.cidade}
       />
       <Input
-        name="bairro"
         label="Bairro: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="Ex: Peró"
+        name="bairro"
         id="bairro"
+        placeholder="ex.: Parque RD"
+        type="text"
+        onChange={(e) => handleOnChange(e)}
+        value={body.bairro}
       />
       <Input
+        label="Numero: "
         name="numero"
-        label="numero: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="Ex.: 430"
         id="numero"
+        placeholder="ex.: 01"
+        type="number"
+        onChange={(e) => handleOnChange(e)}
+        value={body.numero}
       />
       <Input
-        name="email"
         label="Email: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="exemplo@email.com"
+        name="email"
         id="email"
+        placeholder="ex.: email@example.com"
+        type="e-mail"
+        onChange={(e) => handleOnChange(e)}
+        value={body.email}
       />
       <Input
-        name="senha"
         label="Senha: "
-        onChange={(e) => onChangeInput(e)}
-        placeholder="Caracteres e numeros"
-        type="password"
+        name="senha"
         id="senha"
+        placeholder="Digite sua senha aqui."
+        type="password"
+        onChange={(e) => handleOnChange(e)}
+        // definindo um valor, conseguimos utilizar a função limpaCampos(), que reseta os inputs para vazios
+        value={body.senha}
       />
-
-      <SubmitButton
+      <button
         onClick={(e) => {
           e.preventDefault();
           postApi();
+          limpaCampos();
         }}
-        nome="Cadastrar"
         type="submit"
-      />
+      >
+        Cadastrar
+      </button>
     </form>
   );
 }

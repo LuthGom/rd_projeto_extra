@@ -1,0 +1,12 @@
+CHECKLIST
+- [ x ] entender a organização por camadas
+- [ ] praticar componentização
+- [ ] praticar boas práticas dentro de ReactJS
+- [ ] entender o porquê de algumas sintaxes
+- [ ] praticar de forma de integrada os conceitos vistos:
+    - [ ] requisições
+        - [ ] get
+        - [ ] post
+    - [ ] praticar estilização com module
+    - [ ] praticar um pouquinho de lógica 
+- [ ] coneguir visualizar a nossa SPA como SPA

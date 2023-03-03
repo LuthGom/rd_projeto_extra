@@ -1,23 +1,25 @@
-import React from "react";
 import styles from "./Input.module.css";
+
 export default function Input({
+  label,
   type,
-  onChange,
   name,
   id,
   placeholder,
-  label,
+  onChange,
+  value
 }) {
   return (
     <span className={styles.container}>
       <label htmlFor={id}>{label}</label>
       <input
-        className={styles.Input}
         type={type}
         name={name}
         id={id}
         placeholder={placeholder}
         onChange={onChange}
+        className={styles.Input}
+          value={value}
       />
     </span>
   );
